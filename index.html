@@ -5,164 +5,472 @@
   <title>GIGACHAD ALPHA — DEGEN ONBOARDING MODE</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="style.css" />
-
   <style>
-    body {
+    :root {
+      --cyan: #22d3ee;
+      --cyan-dark: #0ea5e9;
+      --gold: #fbbf24;
+      --bg: #00010a;
+      --text-soft: #aaaaaa;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: Inter, system-ui, sans-serif;
-      background: #000;
-      color: #fff;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #020617 0, #000 55%, #000 100%);
+      color: #ffffff;
       overflow-x: hidden;
     }
 
-    /* HERO */
     .hero-wrap {
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
       position: relative;
-      padding: 0 20px;
+      padding: 32px 20px 24px;
+      gap: 18px;
     }
 
     /* GIANT BETA */
     .beta-big {
-      font-size: clamp(120px, 22vw, 300px);
+      font-size: clamp(120px, 22vw, 260px);
       font-weight: 900;
-      background: linear-gradient(180deg, #22d3ee, #0ea5e9, #fbbf24);
+      background: linear-gradient(180deg, var(--cyan), var(--cyan-dark), var(--gold));
       -webkit-background-clip: text;
+      background-clip: text;
       color: transparent;
       animation: glow 3s infinite ease-in-out;
       text-shadow: 0 0 60px rgba(255, 200, 0, 0.25);
     }
 
     @keyframes glow {
-      0%, 100% { opacity: 0.65; transform: scale(1); }
+      0%, 100% { opacity: 0.7; transform: scale(1); }
       50% { opacity: 1; transform: scale(1.06); }
     }
 
-    /* SUBTEXT */
     .subtitle {
-      font-size: 18px;
-      color: #aaaaaa;
-      margin-top: -20px;
-      margin-bottom: 30px;
-      letter-spacing: 0.12em;
+      font-size: 14px;
+      color: var(--text-soft);
+      margin-top: -16px;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
     }
 
-    /* NPC FILTER */
     .npc-test {
       font-size: 14px;
-      margin-bottom: 20px;
-      opacity: 0.7;
+      color: #d4d4d4;
+      opacity: 0.85;
+      line-height: 1.4;
     }
 
-    /* BUTTONS */
-    .btn {
-      display: inline-block;
-      padding: 14px 28px;
-      margin: 8px;
-      border-radius: 14px;
-      font-size: 14px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      text-decoration: none;
-      transition: 0.18s;
-      border: 1px solid rgba(255, 255, 255, 0.15);
+    .npc-test strong {
+      color: var(--gold);
     }
 
-    .btn.primary {
-      background: linear-gradient(135deg, #22d3ee, #0ea5e9);
-      color: #000;
-      box-shadow: 0 0 25px rgba(34, 211, 238, 0.45);
-    }
-
-    .btn.primary:hover {
-      transform: scale(1.06);
-      box-shadow: 0 0 40px rgba(34, 211, 238, 0.65);
-    }
-
-    .btn.ghost {
-      background: rgba(255, 255, 255, 0.05);
-      color: #fff;
-    }
-
-    .btn.ghost:hover {
-      background: rgba(255, 255, 255, 0.15);
-      transform: scale(1.04);
-    }
-
-    /* FOOTER */
-    .footer {
-      position: absolute;
-      bottom: 20px;
-      font-size: 12px;
-      opacity: 0.6;
-      letter-spacing: 0.1em;
-    }
-
-    /* BACKGROUND ELEMENTS */
+    /* FLOATING AURA "CHADS" */
     .floating-chad {
       position: absolute;
       width: 260px;
       height: 260px;
-      opacity: 0.12;
+      opacity: 0.18;
       filter: blur(1px);
-      background-size: contain;
-      background-repeat: no-repeat;
+      background: radial-gradient(circle at 30% 30%, rgba(34, 211, 238, 0.6), transparent 65%),
+                  radial-gradient(circle at 70% 70%, rgba(251, 191, 36, 0.5), transparent 70%);
       animation: float 12s infinite ease-in-out alternate;
+      pointer-events: none;
     }
 
     .chad-left {
       left: -40px;
-      top: 30%;
-      background-image: url('https://i.imgur.com/Y0jzJUh.png');
+      top: 26%;
       animation-delay: -2s;
     }
 
     .chad-right {
       right: -40px;
-      top: 45%;
-      background-image: url('https://i.imgur.com/Y0jzJUh.png');
+      top: 46%;
     }
 
     @keyframes float {
       from { transform: translateY(0px) scale(1); }
-      to   { transform: translateY(-30px) scale(1.08); }
+      to   { transform: translateY(-26px) scale(1.08); }
+    }
+
+    /* NPC FILTER CARD */
+    .npc-card {
+      margin-top: 6px;
+      padding: 16px 18px 14px;
+      border-radius: 18px;
+      max-width: 420px;
+      background: radial-gradient(circle at top, #020617 0, #020617 40%, #020617 100%);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      box-shadow: 0 0 32px rgba(15, 23, 42, 0.9);
+      text-align: left;
+    }
+
+    .npc-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #a5b4fc;
+      margin-bottom: 6px;
+    }
+
+    .npc-instruction {
+      font-size: 13px;
+      color: #e5e7eb;
+      margin-bottom: 12px;
+    }
+
+    .npc-playground {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 10px;
+    }
+
+    .beta-draggable {
+      width: 70px;
+      height: 70px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #ffffff, #e5e7eb 30%, #f59e0b 65%, #b45309 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 38px;
+      font-weight: 800;
+      color: #111827;
+      cursor: grab;
+      user-select: none;
+      box-shadow: 0 0 22px rgba(251, 191, 36, 0.55);
+      border: 1px solid rgba(248, 250, 252, 0.8);
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, border-color 0.12s ease-out;
+    }
+
+    .beta-draggable.dragging,
+    .beta-draggable.selected {
+      transform: scale(1.06);
+      box-shadow: 0 0 30px rgba(251, 191, 36, 0.85);
+      border-color: rgba(250, 250, 250, 1);
+    }
+
+    .chad-target {
+      flex: 1;
+      min-width: 0;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.9);
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(15, 23, 42, 0.9);
+      cursor: pointer;
+      transition: border-color 0.14s ease-out, background 0.14s ease-out, box-shadow 0.14s ease-out;
+    }
+
+    .chad-target::before {
+      content: "";
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      border: 2px solid rgba(148, 163, 184, 0.95);
+      box-shadow: inset 0 0 12px rgba(15, 23, 42, 0.9);
+    }
+
+    .chad-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #9ca3af;
+      white-space: nowrap;
+    }
+
+    .target-hint {
+      font-size: 11px;
+      color: #6b7280;
+    }
+
+    .chad-target.over {
+      border-style: solid;
+      border-color: var(--cyan);
+      background: radial-gradient(circle at top left, rgba(34, 211, 238, 0.25), #020617);
+      box-shadow: 0 0 22px rgba(34, 211, 238, 0.55);
+    }
+
+    .npc-status {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding-top: 6px;
+      border-top: 1px dashed rgba(55, 65, 81, 0.9);
+      color: #9ca3af;
+    }
+
+    .npc-status span {
+      font-weight: 600;
+    }
+
+    .npc-status--locked span {
+      color: #f97316;
+    }
+
+    .npc-status--unlocked span {
+      color: #22c55e;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-4px); }
+      40% { transform: translateX(4px); }
+      60% { transform: translateX(-3px); }
+      80% { transform: translateX(2px); }
+    }
+
+    .npc-status--shake {
+      animation: shake 0.35s ease-in-out;
+    }
+
+    /* CTA BUTTONS */
+    .cta-buttons {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 14px;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      transition: 0.18s;
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--cyan), var(--cyan-dark));
+      color: #000;
+      box-shadow: 0 0 20px rgba(34, 211, 238, 0.45);
+    }
+
+    .btn.ghost {
+      background: rgba(255, 255, 255, 0.04);
+      color: #ffffff;
+    }
+
+    .cta-buttons.unlocked .btn:hover {
+      transform: translateY(-1px) scale(1.03);
+      box-shadow: 0 0 22px rgba(15, 23, 42, 0.9);
+    }
+
+    .cta-buttons.locked .btn {
+      opacity: 0.35;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .cta-buttons.unlocked .btn {
+      opacity: 1;
+      cursor: pointer;
+    }
+
+    .footer {
+      margin-top: 26px;
+      font-size: 11px;
+      opacity: 0.6;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .footer span {
+      opacity: 0.85;
+    }
+
+    .npc-cleared .beta-big {
+      text-shadow: 0 0 80px rgba(34, 197, 94, 0.6);
+    }
+
+    @media (max-width: 600px) {
+      .npc-card {
+        max-width: 100%;
+      }
+
+      .npc-playground {
+        flex-direction: row;
+      }
+
+      .chad-label {
+        font-size: 11px;
+      }
+
+      .beta-big {
+        font-size: 32vw;
+      }
+
+      .floating-chad {
+        display: none;
+      }
     }
   </style>
 </head>
-
 <body>
 
   <div class="hero-wrap">
 
+    <!-- Background aura "chads" -->
     <div class="floating-chad chad-left"></div>
     <div class="floating-chad chad-right"></div>
 
+    <!-- Main β symbol -->
     <div class="beta-big">β</div>
 
     <div class="subtitle">DEGEN ONBOARDING MODE</div>
 
     <div class="npc-test">
-      If this page confuses you, you may be an NPC. Seek help.<br>
-      If this page excites you, welcome to the Cult of GCAβ.
+      First, prove you are <strong>not an NPC</strong>.<br />
+      Then you may enter the Cult of GIGACHAD ALPHA (still β).
     </div>
 
-    <!-- BUTTONS -->
-    <a href="https://x.com/YOURPROFILE" class="btn primary" target="_blank">Enter the Cult</a>
-    <a href="https://app.uniswap.org/swap" class="btn ghost" target="_blank">Buy / Swap</a>
-    <a href="https://basescan.org/token/YOURTOKEN" class="btn ghost" target="_blank">Token Explorer</a>
-    <a href="https://discord.gg/YOURINVITE" class="btn ghost" target="_blank">Join Discord</a>
+    <!-- NPC FILTER MINI-GAME -->
+    <div id="npc-card" class="npc-card">
+      <div class="npc-title">NPC FILTER v0.1</div>
+      <p class="npc-instruction">
+        Drag the <strong>β rune</strong> into the Chad outline
+        (or tap β, then tap the outline on mobile) to unlock the page.
+      </p>
 
-    <div class="footer">Memecoin. Not retirement plan. Consume memes responsibly. 🔥</div>
+      <div class="npc-playground">
+        <div id="betaToken" class="beta-draggable" draggable="true">β</div>
+
+        <div id="chadTarget" class="chad-target">
+          <div class="chad-label">DROP HERE · PROVE YOUR CHADNESS</div>
+          <div class="target-hint">Tip: NPCs never read this line.</div>
+        </div>
+      </div>
+
+      <div id="npcStatus" class="npc-status npc-status--locked">
+        Status: <span>LOCKED · POSSIBLE NPC</span>
+      </div>
+    </div>
+
+    <!-- CTA BUTTONS (LOCKED UNTIL GAME PASSED) -->
+    <div id="cta-buttons" class="cta-buttons locked">
+      <!-- 🔗 Replace these hrefs with your real links -->
+      <a href="https://x.com/YOUR_PROFILE" target="_blank" rel="noopener" class="btn primary">
+        Enter the Cult (X)
+      </a>
+      <a href="https://app.uniswap.org" target="_blank" rel="noopener" class="btn ghost">
+        Buy / Swap
+      </a>
+      <a href="https://basescan.org/token/YOUR_TOKEN" target="_blank" rel="noopener" class="btn ghost">
+        Token Explorer
+      </a>
+      <a href="https://discord.gg/YOUR_INVITE" target="_blank" rel="noopener" class="btn ghost">
+        Join Discord
+      </a>
+    </div>
+
+    <div class="footer">
+      <span>MEMECOIN. NOT RETIREMENT PLAN. CONSUME MEMES RESPONSIBLY. 🔥</span>
+    </div>
   </div>
 
+  <script>
+    (function () {
+      const beta = document.getElementById("betaToken");
+      const target = document.getElementById("chadTarget");
+      const status = document.getElementById("npcStatus");
+      const cta = document.getElementById("cta-buttons");
+
+      if (!beta || !target || !status || !cta) return;
+
+      let betaSelected = false;
+      let unlocked = false;
+
+      function setUnlocked() {
+        if (unlocked) return;
+        unlocked = true;
+
+        cta.classList.remove("locked");
+        cta.classList.add("unlocked");
+
+        status.classList.remove("npc-status--locked");
+        status.classList.add("npc-status--unlocked");
+        status.innerHTML = 'Status: <span>ACCESS GRANTED · NOT AN NPC</span>';
+
+        document.body.classList.add("npc-cleared");
+      }
+
+      // Drag & drop behaviour
+      beta.addEventListener("dragstart", function () {
+        beta.classList.add("dragging");
+      });
+
+      beta.addEventListener("dragend", function () {
+        beta.classList.remove("dragging");
+      });
+
+      target.addEventListener("dragover", function (e) {
+        e.preventDefault();
+        target.classList.add("over");
+      });
+
+      target.addEventListener("dragleave", function () {
+        target.classList.remove("over");
+      });
+
+      target.addEventListener("drop", function (e) {
+        e.preventDefault();
+        target.classList.remove("over");
+        setUnlocked();
+      });
+
+      // Mobile / click fallback: tap β then tap the target
+      beta.addEventListener("click", function () {
+        betaSelected = !betaSelected;
+        beta.classList.toggle("selected", betaSelected);
+      });
+
+      target.addEventListener("click", function () {
+        if (betaSelected) {
+          setUnlocked();
+        } else if (!unlocked) {
+          // gently hint
+          status.classList.add("npc-status--shake");
+          setTimeout(() => status.classList.remove("npc-status--shake"), 400);
+        }
+      });
+
+      // Prevent clicks on locked CTAs
+      cta.addEventListener(
+        "click",
+        function (event) {
+          if (cta.classList.contains("locked") && !unlocked) {
+            event.preventDefault();
+            event.stopPropagation();
+            status.classList.add("npc-status--shake");
+            setTimeout(() => status.classList.remove("npc-status--shake"), 400);
+          }
+        },
+        true
+      );
+    })();
+  </script>
 </body>
 </html>
