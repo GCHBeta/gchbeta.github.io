@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>GIGACHAD ALPHA — DEGEN ONBOARDING MODE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Inter, system-ui, sans-serif;
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* HERO */
+    .hero-wrap {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      padding: 0 20px;
+    }
+
+    /* GIANT BETA */
+    .beta-big {
+      font-size: clamp(120px, 22vw, 300px);
+      font-weight: 900;
+      background: linear-gradient(180deg, #22d3ee, #0ea5e9, #fbbf24);
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: glow 3s infinite ease-in-out;
+      text-shadow: 0 0 60px rgba(255, 200, 0, 0.25);
+    }
+
+    @keyframes glow {
+      0%, 100% { opacity: 0.65; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.06); }
+    }
+
+    /* SUBTEXT */
+    .subtitle {
+      font-size: 18px;
+      color: #aaaaaa;
+      margin-top: -20px;
+      margin-bottom: 30px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* NPC FILTER */
+    .npc-test {
+      font-size: 14px;
+      margin-bottom: 20px;
+      opacity: 0.7;
+    }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      margin: 8px;
+      border-radius: 14px;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      transition: 0.18s;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, #22d3ee, #0ea5e9);
+      color: #000;
+      box-shadow: 0 0 25px rgba(34, 211, 238, 0.45);
+    }
+
+    .btn.primary:hover {
+      transform: scale(1.06);
+      box-shadow: 0 0 40px rgba(34, 211, 238, 0.65);
+    }
+
+    .btn.ghost {
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+    }
+
+    .btn.ghost:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: scale(1.04);
+    }
+
+    /* FOOTER */
+    .footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 12px;
+      opacity: 0.6;
+      letter-spacing: 0.1em;
+    }
+
+    /* BACKGROUND ELEMENTS */
+    .floating-chad {
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      opacity: 0.12;
+      filter: blur(1px);
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: float 12s infinite ease-in-out alternate;
+    }
+
+    .chad-left {
+      left: -40px;
+      top: 30%;
+      background-image: url('https://i.imgur.com/Y0jzJUh.png');
+      animation-delay: -2s;
+    }
+
+    .chad-right {
+      right: -40px;
+      top: 45%;
+      background-image: url('https://i.imgur.com/Y0jzJUh.png');
+    }
+
+    @keyframes float {
+      from { transform: translateY(0px) scale(1); }
+      to   { transform: translateY(-30px) scale(1.08); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="hero-wrap">
+
+    <div class="floating-chad chad-left"></div>
+    <div class="floating-chad chad-right"></div>
+
+    <div class="beta-big">β</div>
+
+    <div class="subtitle">DEGEN ONBOARDING MODE</div>
+
+    <div class="npc-test">
+      If this page confuses you, you may be an NPC. Seek help.<br>
+      If this page excites you, welcome to the Cult of GCAβ.
+    </div>
+
+    <!-- BUTTONS -->
+    <a href="https://x.com/YOURPROFILE" class="btn primary" target="_blank">Enter the Cult</a>
+    <a href="https://app.uniswap.org/swap" class="btn ghost" target="_blank">Buy / Swap</a>
+    <a href="https://basescan.org/token/YOURTOKEN" class="btn ghost" target="_blank">Token Explorer</a>
+    <a href="https://discord.gg/YOURINVITE" class="btn ghost" target="_blank">Join Discord</a>
+
+    <div class="footer">Memecoin. Not retirement plan. Consume memes responsibly. 🔥</div>
+  </div>
+
+</body>
+</html>
